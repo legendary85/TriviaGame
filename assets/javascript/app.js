@@ -5,9 +5,8 @@ $( document ).ready(function() {
     console.log("ready");
 
 
-  
 
-   var timer = 60;
+   var timer = 10;
 
     var trivia = [
         {
@@ -101,13 +100,17 @@ $( document ).ready(function() {
          },
         
     ];
-    
+  
 
-    //assigned trivia[0] to var show to questions and answers in html.
+//assigned trivia[0] to var show to questions and answers in html.
 var show = trivia[0];
 var index = 0;
 var gotRight = 0;
 var gotWrong = 0;
+console.log(trivia);
+
+$('#gotCorrect').html(gotRight);
+$('#gotWrong').html(gotWrong);
 
 //set a function to call to show questions and answers
 function displayQuestion(){
@@ -116,6 +119,8 @@ function displayQuestion(){
     $('#answer2').html(show.answer2);
     $('#answer3').html(show.answer3);
     $('#answer4').html(show.answer4);
+    startGame();    
+
 };
 
 //set on click function to run checkAnswer when answer is selected.
@@ -123,26 +128,37 @@ function displayQuestion(){
 $('#answer1').on('click',function(){
     console.log('a');
     checkAnswer(show.answer1);
+    
 });
 $('#answer2').on('click',function(){
     console.log('b');
     checkAnswer(show.answer2);
+    
+    
 });
 $('#answer3').on('click',function(){
     console.log('c');
     checkAnswer(show.answer3);
+    
 });
 $('#answer4').on('click',function(){
     console.log('d');
     checkAnswer(show.answer4);
+    
 });
 
 
 //set function to display next question after answer is selected.
 function nextQuestion(){
-    index++;
-    show= trivia[index];
-    displayQuestion();
+    index++
+    if(index < trivia.length){
+        show= trivia[index];
+        displayQuestion();
+    } else{
+        $("#quiz-container").hide();
+            $("#scoreContainer").show();
+    }
+
 };
 
 
@@ -152,22 +168,26 @@ function nextQuestion(){
 function checkAnswer(answer){
     if(answer===show.correct){
         gotRight++;
+        $('#gotCorrect').html(gotRight);
         console.log('Got ' + gotRight + 'Right!');
-        alert('Winner!');
+        // alert('Winner!');
         nextQuestion()
+        
     }
     else{
         gotWrong++;
+        $('#gotWrong').html(gotWrong);
         console.log('Got ' + gotWrong + 'Wrong!');
-        alert('Lose!!');
+        // alert('Lose!!');
         nextQuestion()
+        
     }
 }
 
 
-
 $('#start').on('click', function(){
-    $('#start').hide;
+    $(this).hide();
+    $("#quiz-container").show();
         startGame();
 });
 
@@ -175,20 +195,22 @@ $('#start').on('click', function(){
 var intervalID;
 
 function startGame(){
-    timer=60;
+    timer=5;
     clearInterval(intervalID);
     intervalID = setInterval(function(){
 
         timer--;
-        $('#timer').html('Time remaining: ' + timer + ' seconds.');
+        $('#timer').html('Time remaining: ' + timer + ' seconds');
         if(timer===0){
+            gotWrong++;
+            $('#gotWrong').html(gotWrong);
             clearInterval(intervalID);
-            $('#start').show();
-            alert('Game Over!!!!!')
+
+            nextQuestion();                                                
         }
     },1000);
         
-}    
+}   
 
 
 //function is called to display questions and answers on the browser window.

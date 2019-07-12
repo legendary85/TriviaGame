@@ -1,18 +1,69 @@
 
+body, html {
+    height: 100%;
+    display: grid;
+    background-color: #f7e019;
+  } 
+
+#container{
+    position: relative;
+    box-sizing: content-box;  
+    width: 700px;
+    height: 450px;
+    padding: 20px;  
+    border: 10px solid blue;
+    margin:auto;
+    text-align: center;
+    background-color: white;
+  }
+
+#trivia{
+    padding-bottom: 30px;
+    font-size: 49px;
+}
+
+#timer{
+    position: absolute;
+    bottom: 15px;
+    left: 20%;
+    padding-top: 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
 
 #question{
     font-weight: 800;
     margin-top: 10px;
+    font-size: 30px;
 }
+
+#answer1:hover {
+        background-color: yellow;
+      }
+#answer2:hover {
+        background-color: yellow;
+      }
+#answer3:hover {
+        background-color: yellow;
+      }
+#answer4:hover {
+        background-color: yellow;
+      }
+
 #answer1{
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 #answer2{
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 #answer3{
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 #answer4{
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 20px;
 }
+/* =================Score===================== */
