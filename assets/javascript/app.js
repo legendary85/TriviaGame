@@ -192,6 +192,19 @@ $(document).ready(function () {
         startGame();
     });
 
+    //TROUBLESHOOT RESTART BUTTON
+    // $('#restart').on('click', function (){
+    //     // $(this).hide();
+    //     $('#start').show();
+    //     $("#start-quiz").show();
+    //     $("#quiz-container").hide();
+    //     $("#scoreContainer").hide();
+    //     $('#timer').hide();
+    //     $('#gotCorrect').html(gotRight);
+    //     $('#gotWrong').html(gotWrong);
+    //     nextQuestion();
+    // })
+
 
     var intervalID;
 
