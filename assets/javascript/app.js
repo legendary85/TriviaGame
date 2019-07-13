@@ -5,9 +5,11 @@ $(document).ready(function () {
     console.log("ready");
 
 
-
-    var timer = 10;
-
+    // Declared global variables 
+    var timer = 0;
+    
+    //Initializing  while declaring
+    //creates and array of objects    
     var trivia = [
         {
             question: "Why do JavaScript and Java have similar names?",
@@ -96,12 +98,10 @@ $(document).ready(function () {
             answer3: 'window.routeEvents(Event.CLICK );',
             answer4: 'window.raiseEvents(Event.CLICK );',
             correct: "window.captureEvents(Event.CLICK);"
-
         },
-
     ];
 
-
+    //Declaring global variables
     //assigned trivia[0] to var show to questions and answers in html.
     var show = trivia[0];
     var index = 0;
@@ -112,7 +112,7 @@ $(document).ready(function () {
     $('#gotCorrect').html(gotRight);
     $('#gotWrong').html(gotWrong);
 
-    //set a function to call to show questions and answers
+    //Declared a function to call to show questions and answers to update html elements.
     function displayQuestion() {
         $('#question').html(show.question);
         $('#answer1').html(show.answer1);
@@ -120,11 +120,9 @@ $(document).ready(function () {
         $('#answer3').html(show.answer3);
         $('#answer4').html(show.answer4);
         startGame();
-
     };
 
-    //set on click function to run checkAnswer when answer is selected.
-
+    // Declared a on click function to invoke the checkAnswer function when answer is selected.
     $('#answer1').on('click', function () {
         console.log('a');
         checkAnswer(show.answer1);
@@ -147,8 +145,7 @@ $(document).ready(function () {
 
     });
 
-
-    //set function to display next question after answer is selected.
+    //Declared a nextQuestion function to display next question after answer is selected.
     function nextQuestion() {
         index++
         if (index < trivia.length) {
@@ -157,14 +154,15 @@ $(document).ready(function () {
         } else {
             $("#quiz-container").hide();
             $("#scoreContainer").show();
+            clearInterval(intervalID);
+            // $("#restart").show();
         }
 
     };
 
-
-
-
-    //set a function to check conditionals when answer is selected.
+    //Declared a checkAnswer function to check  if answer selected is correct or wrong
+    // aconditionals when answer is selected.
+    //Invokes the nextQuestion function
     function checkAnswer(answer) {
         if (answer === show.correct) {
             gotRight++;
@@ -180,11 +178,11 @@ $(document).ready(function () {
             console.log('Got ' + gotWrong + 'Wrong!');
             // alert('Lose!!');
             nextQuestion()
-
         }
     }
 
-
+    //Declared a on click function assigned to the start button.
+    //Invokes the startGame function 
     $('#start').on('click', function () {
         $(this).hide();
         $("#start-quiz").hide();
@@ -192,44 +190,51 @@ $(document).ready(function () {
         startGame();
     });
 
-    //TROUBLESHOOT RESTART BUTTON
-    // $('#restart').on('click', function (){
-    //     // $(this).hide();
-    //     $('#start').show();
-    //     $("#start-quiz").show();
-    //     $("#quiz-container").hide();
-    //     $("#scoreContainer").hide();
-    //     $('#timer').hide();
-    //     $('#gotCorrect').html(gotRight);
-    //     $('#gotWrong').html(gotWrong);
-    //     nextQuestion();
-    // })
-
-
+    // Declared a global variable intervalID
     var intervalID;
-
+    //Declared funciton cl
     function startGame() {
-        timer = 5;
+        timer = 10;
         clearInterval(intervalID);
         intervalID = setInterval(function () {
-
+            
             timer--;
             $('#timer').html('Time remaining: ' + timer + ' seconds');
             if (timer === 0) {
                 gotWrong++;
                 $('#gotWrong').html(gotWrong);
                 clearInterval(intervalID);
-
+                
                 nextQuestion();
             }
         }, 1000);
-
     }
-
-
+    
+    
+    //TROUBLESHOOT RESTART BUTTON - Questions do not start from index 0
+    // index stats from 9 the goes to 1 skipping 0. 
+    
+    // $('#restart').on('click', function (){
+    //     $(this).hide();
+    //      show = trivia[0];
+    //      index=0;
+    //      gotRight = 0;
+    //      gotWrong = 0;
+         
+    //     $('#start').show();
+    //     $("#start-quiz").show();
+    //     $("#quiz-container").hide();
+    //     $("#scoreContainer").hide();
+    //     $('#timer').hide();
+    //     //  clearInterval(intervalID);
+    //     $('#gotCorrect').html(gotRight);
+    //     $('#gotWrong').html(gotWrong);
+    //     // nextQuestion();
+    // })
+    
     //function is called to display questions and answers on the browser window.
+    
     displayQuestion();
-
 
 
 });

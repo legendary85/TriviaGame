@@ -3,6 +3,7 @@ body, html {
     height: 100%;
     display: grid;
     background-color: #f7e019;
+    font-family: 'Bangers', cursive;
   } 
 
 #container{
@@ -20,6 +21,7 @@ body, html {
 #trivia{
     padding-bottom: 30px;
     font-size: 49px;
+    letter-spacing: 2px;
 }
 
 #timer{
@@ -32,7 +34,7 @@ body, html {
 }
 
 #question{
-    font-weight: 800;
+    font-weight: 4 00;
     margin-top: 10px;
     font-size: 30px;
 }
@@ -67,3 +69,16 @@ body, html {
     font-size: 20px;
 }
 /* =================Score===================== */
+#scoreContainer{
+  padding-top: 85px;
+}
+.c{
+    font-weight: 800;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.w{
+    font-weight: 800;
+    margin-top: 10px;
+    font-size: 30px;
+}
