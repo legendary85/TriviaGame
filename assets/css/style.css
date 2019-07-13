@@ -9,8 +9,8 @@ body, html {
 #container{
     position: relative;
     box-sizing: content-box;  
-    width: 700px;
-    height: 450px;
+    width: 70vw;
+    height: 40vw;
     padding: 20px;  
     border: 10px solid blue;
     margin:auto;
@@ -19,24 +19,24 @@ body, html {
   }
 
 #trivia{
-    padding-bottom: 30px;
-    font-size: 49px;
+    padding-bottom: 15px;
+    font-size: 5vw;
     letter-spacing: 2px;
 }
 
 #timer{
     position: absolute;
     bottom: 15px;
-    left: 20%;
+    left: 36%;
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 2vw;
     text-transform: uppercase;
 }
 
 #question{
-    font-weight: 4 00;
+    font-weight: 400;
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 4vw;
 }
 
 #answer1:hover {
@@ -53,20 +53,20 @@ body, html {
       }
 
 #answer1{
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 2vw;
 }
 #answer2{
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 2vw;
 }
 #answer3{
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 2vw;
 }
 #answer4{
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 2vw;
 }
 /* =================Score===================== */
 #scoreContainer{
@@ -75,10 +75,22 @@ body, html {
 .c{
     font-weight: 800;
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 3vw;
 }
 .w{
     font-weight: 800;
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 3vw;
 }
+
+/* =======================Media Query==================== */
+
+/* @media only screen and (max-width: 320px) {
+  #container{
+
+    box-sizing: content-box;  
+    width: 50px;
+    height: 50px; 
+  }
+  
+} */
